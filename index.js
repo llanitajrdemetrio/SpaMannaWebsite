@@ -27,3 +27,4 @@ fetch('home.php')
     document.body.prepend(statusBox);
   })
   .catch(err => console.error('Error connecting to database:', err));
+
