@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | Spa Manna Massage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+  <div class="light"></div>
+  <div class="light"></div>
+  <div class="light"></div>
+
+  <div class="login-container">
+    <h1>Admin Login</h1>
+    <p>Welcome back to Spa Manna Massage</p>
+
+    <div class="warning">
+      ⚠️ Authorized Access Only — Admins are allowed to log in. Unauthorized users will be denied entry.
+    </div>
+
+    <!-- ✅ Form connects to login.php -->
+    <form action="login.php" method="POST">
+      <div class="input-group" style="position: relative;">
+        <input type="text" name="username" placeholder="Enter Username" required>
+      </div>
+
+      <div class="input-group" style="position: relative;">
+        <input type="password" id="password" name="password" placeholder="Enter Password" required>
+        <!-- 👁️ Eye Toggle -->
+        <span id="togglePassword" style="
+          position:absolute;
+          right:15px;
+          top:50%;
+          transform:translateY(-50%);
+          cursor:pointer;
+          color:#f8cde0;
+          font-size:1.1rem;">👁️</span>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="footer-text">Return to <a href="home.html">Home</a></p>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

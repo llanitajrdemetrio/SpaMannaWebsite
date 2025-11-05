@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services & Pricing | Spa Manna Massage</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="Services.css">
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Logo" id="adminLogo">
+      <h1>Spa Manna Massage</h1>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="Services.html" class="active">Services & Pricing</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+        <li><a href="Appointment.html">Book Appointment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN SECTION ===== -->
+  <section class="services">
+    <h2>Our Services & Prices</h2>
+    <p>Relax, renew, and recharge — our massages are designed to balance your body and soothe your spirit.<br>
+       
+    <div class="service-container">
+      
+      <!-- Template Service Card -->
+      <div class="service-card">
+        <img src="combinationmassage.jpg" alt="Combination Massage">
+        <h3>Combination Massage</h3>
+        <p>Our signature full-body massage combining techniques to relieve stress and restore balance.</p>
+        <div class="price-list">
+          <span>1 hr - ₱399</span>
+          <span>1.5 hrs - ₱599</span>
+          <span>2 hrs - ₱799</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Combination Massage')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="swedishmassage.jpg" alt="Swedish Massage">
+        <h3>Swedish Massage</h3>
+        <p>Gentle and soothing strokes to relax your entire body and mind.</p>
+        <div class="price-list">
+          <span>1 hr - ₱399</span>
+          <span>1.5 hrs - ₱599</span>
+          <span>2 hrs - ₱799</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Swedish Massage')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="hilot.jpg" alt="Hilot Traditional Massage">
+        <h3>Hilot Traditional Massage</h3>
+        <p>Traditional Filipino massage that targets energy pathways to heal and soothe.</p>
+        <div class="price-list">
+          <span>1 hr - ₱499</span>
+          <span>1.5 hrs - ₱749</span>
+          <span>2 hrs - ₱999</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Hilot Traditional Massage')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="deep-tissue-massage.jpg" alt="Deep Tissue Massage">
+        <h3>Deep Tissue Massage</h3>
+        <p>Focused pressure on deep muscle layers for muscle recovery and pain relief.</p>
+        <div class="price-list">
+          <span>1 hr - ₱499</span>
+          <span>1.5 hrs - ₱749</span>
+          <span>2 hrs - ₱999</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Deep Tissue Massage')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="thaimassage.jpg" alt="Thai Massage">
+        <h3>Thai Massage</h3>
+        <p>Dynamic stretching and yoga-inspired movements to enhance flexibility.</p>
+        <div class="price-list">
+          <span>1 hr - ₱599</span>
+          <span>1.5 hrs - ₱899</span>
+          <span>2 hrs - ₱1,199</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Thai Massage')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="hot-stone-massage.jpg" alt="Hot Stone Massage">
+        <h3>Hot Stone Massage</h3>
+        <p>Warm stones melt away tension and improve circulation for deep relaxation.</p>
+        <div class="price-list">
+          <span>1.5 hrs - ₱749</span>
+          <span>2 hrs - ₱999</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Hot Stone Massage')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="ventosa.jpg" alt="Ventosa Massage">
+        <h3>Ventosa Massage</h3>
+        <p>Uses cups to relieve toxins and improve blood flow for better wellness.</p>
+        <div class="price-list">
+          <span>1.5 hrs - ₱749</span>
+          <span>2 hrs - ₱999</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Ventosa Massage')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="scrub.jpg" alt="Body Scrub Massage">
+        <h3>Body Scrub Massage</h3>
+        <p>Exfoliating body treatment that leaves your skin smooth and refreshed.</p>
+        <div class="price-list">
+          <span>1.5 hrs - ₱749</span>
+          <span>2 hrs - ₱999</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Body Scrub Massage')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="handfoot.jpg" alt="Hand & Foot Reflexology">
+        <h3>Hand & Foot Reflexology</h3>
+        <p>Pressure-based therapy to promote relaxation and improve circulation.</p>
+        <div class="price-list">
+          <span>1 hr - ₱449</span>
+          <span>1.5 hrs - ₱699</span>
+          <span>2 hrs - ₱899</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Hand & Foot Reflexology')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="Prenatal.jpg" alt="PreNatal Massage">
+        <h3>PostNatal & PreNatal Massage</h3>
+        <p>Safe, nurturing massage designed for mothers before or after childbirth.</p>
+        <div class="price-list">
+          <span>1 hr - ₱449</span>
+          <span>1.5 hrs - ₱699</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('PostNatal & PreNatal')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="Kiddie.jpg" alt="Kiddie Massage">
+        <h3>Kiddie Massage</h3>
+        <p>Gentle massage designed to relax and calm your little ones.</p>
+        <div class="price-list">
+          <span>1 hr - ₱299</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Kiddie Massage')">Add Service</button>
+      </div>
+
+      <div class="service-card">
+        <img src="earcandle.jpg" alt="Ear Candling">
+        <h3>Ear Candling</h3>
+        <p>Natural ear-cleansing therapy using gentle wax candles.</p>
+        <div class="price-list">
+          <span>Per session - ₱249</span>
+        </div>
+        <button class="add-btn" onclick="addToCart('Ear Candling')">Add Service</button>
+      </div>
+
+    </div>
+
+    <!-- Loading Overlay -->
+<div class="loading-overlay">
+  <div class="spinner"></div>
+  <div class="loading-text">Preparing your spa experience...</div>
+</div>
+
+  </section>
+
+  <!-- Duration Popup Modal -->
+<div id="durationModal" class="modal-overlay">
+  <div class="modal-content">
+    <h3 id="modalServiceName">Choose Duration</h3>
+    <div id="durationOptions"></div>
+    <button class="close-modal" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+
+ <footer>
+  © 2025 Spa Manna Massage | All Rights Reserved
+</footer>
+
+
+
+  <script src="Services.js"></script>
+  <!-- MODAL -->
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h3 id="modalServiceName">Select Duration</h3>
+    <div id="durationOptions">
+      <button class="duration-btn">1 hr</button>
+      <button class="duration-btn">1.5 hrs</button>
+      <button class="duration-btn">2 hrs</button>
+    </div>
+    <button class="close-modal">Cancel</button>
+  </div>
+</div>
+
+<!-- Link JS -->
+<script src="services.js"></script>
+
+</body>
+</html>

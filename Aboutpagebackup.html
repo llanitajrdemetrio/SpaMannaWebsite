@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Spa Manna Massage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    html, body { width: 100%; height: 100%; color: white; overflow-x: hidden; }
+
+    /* ✨ STATIC BACKGROUND WITH REAL SPA ATMOSPHERE */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)),
+        url('aboutbackground.jpg') center/cover no-repeat;
+      background-blend-mode: overlay;
+      filter: brightness(0.50);
+      z-index: -2;
+    }
+
+    /* HEADER */
+    header {
+      width: 100%; background-color: rgba(156, 43, 100, 0.9);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 50px; position: fixed; top: 0; left: 0;
+      z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .logo { display: flex; align-items: center; gap: 15px; }
+
+    /* ✅ Clickable logo with hover animation */
+    .logo img {
+      width: 50px; height: 50px; border-radius: 50%;
+      background-color: white; cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.1);
+    }
+
+    .logo h1 { font-size: 1.3rem; color: white; font-weight: 600; text-shadow: 0 0 10px #ffb6d5; }
+
+    nav ul { display: flex; list-style: none; gap: 30px; }
+    nav ul li a {
+      text-decoration: none; color: white; font-weight: 500;
+      position: relative; transition: color 0.3s ease, transform 0.3s ease;
+    }
+    nav ul li a::after {
+      content: ""; position: absolute; bottom: -4px; left: 0;
+      width: 0%; height: 2px; background-color: #ffb6d5; transition: width 0.3s ease;
+    }
+    nav ul li a:hover { color: #ffc0d9; transform: translateY(-2px); }
+    nav ul li a:hover::after { width: 100%; }
+    nav ul li a.active { color: #ffb6d5; text-shadow: 0 0 10px #ffb6d5, 0 0 25px #ffb6d5; }
+
+    /* HERO SECTION */
+    .hero {
+      width: 100%;
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      overflow: hidden;
+      padding-top: 120px;
+      padding-bottom: 60px;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      color: #ffb6d5;
+      text-shadow: 0 0 15px #ffb6d5, 0 0 25px #ffb6d5;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #ddd;
+      max-width: 700px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    /* ✨ Centered Slideshow Box (Landscape Style) */
+    .slideshow-box {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+      aspect-ratio: 16/9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,182,213,0.4);
+      margin: 40px auto;
+    }
+
+    .slideshow-box img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: fadeImages 24s infinite;
+      border-radius: 20px;
+    }
+
+    .slideshow-box img:nth-child(1) { animation-delay: 0s; }
+    .slideshow-box img:nth-child(2) { animation-delay: 6s; }
+    .slideshow-box img:nth-child(3) { animation-delay: 12s; }
+    .slideshow-box img:nth-child(4) { animation-delay: 18s; }
+
+    @keyframes fadeImages {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      25% { opacity: 1; }
+      35% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* ✨ Extra Spa Details */
+    .hero .details {
+      max-width: 750px;
+      color: #f5d4e6;
+      font-size: 1rem;
+      line-height: 1.8;
+      background: rgba(255,255,255,0.05);
+      padding: 20px 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 15px rgba(255,182,213,0.1);
+    }
+
+    /* WHY CHOOSE US SECTION */
+    .why {
+      background-color: rgba(17, 17, 17, 0.9);
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .why h2 {
+      font-size: 2.5rem;
+      color: #ffb6d5;
+      text-shadow: 0 0 15px #ffb6d5, 0 0 25px #ffb6d5;
+      margin-bottom: 40px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .flip-card {
+      background: transparent;
+      width: 300px;
+      height: 370px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 182, 213, 0.15);
+    }
+
+    .flip-card-front {
+      background-color: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .flip-card-front i {
+      font-size: 3rem;
+      color: #ffb6d5;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .flip-card-front h3 {
+      color: #ffb6d5;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .flip-card-front p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .flip-card-front:hover i {
+      transform: rotate(10deg) scale(1.1);
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: transform 0.4s ease;
+    }
+
+    .flip-card-back:hover img {
+      transform: scale(1.1);
+    }
+
+    footer {
+      background-color: #9c2b64;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      nav ul { gap: 15px; }
+      .hero h2 { font-size: 2rem; }
+      .flip-card { width: 90%; height: 350px; }
+      .slideshow-box { width: 95%; aspect-ratio: 16/10; height: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <!-- ✅ Clickable logo redirecting to adminlogin.html -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Logo" id="adminLogo">
+      <h1>Spa Manna Massage</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutpage,html.html" class="active">About</a></li>
+        <li><a href="servicespage.html">Services</a></li>
+        <li><a href="pricingpage.html">Price</a></li>
+        <li><a href="contactpage.html">Contact Us</a></li>
+        <li><a href="appointmentpage.html">Book Appointment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>About Spa Manna</h2>
+    <p>At Spa Manna Massage, we bring together tranquility, healing, and balance. Our skilled therapists are dedicated to helping you unwind, rejuvenate, and rediscover inner peace through professional care and serene comfort.</p>
+
+    <div class="slideshow-box">
+      <img src="sparelaxation.jfif" alt="Spa Relaxation">
+      <img src="massageroom.jfif" alt="Massage Room">
+      <img src="essentialoils.jfif" alt="Essential Oils">
+      <img src="peacefulambiance.jfif" alt="Peaceful Ambiance">
+    </div>
+
+    <div class="details">
+      Indulge in an atmosphere of sophistication and calm. Every detail at Spa Manna is crafted for your relaxation — from aromatic oils to soothing music and ambient lighting. Our private treatment rooms offer a sanctuary of comfort, while our premium massage techniques restore both body and spirit. Experience the art of wellness, where luxury meets care and every session feels tailor-made for you.
+    </div>
+  </section>
+
+  <section class="why">
+    <h2>Why Choose Us</h2>
+    <div class="cards">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="fa-solid fa-user-nurse"></i>
+            <h3>Professional Therapists</h3>
+            <p>Our team of certified massage therapists ensures you get the best, personalized care for your wellness journey.</p>
+          </div>
+          <div class="flip-card-back">
+            <img src="professional.jpg" alt="Professional Therapists">
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="fa-solid fa-leaf"></i>
+            <h3>Relaxing Ambiance</h3>
+            <p>Immerse yourself in a calm, peaceful environment designed to soothe your senses and melt your stress away.</p>
+          </div>
+          <div class="flip-card-back">
+            <img src="ambiance.jfif" alt="Relaxing Ambiance">
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="fa-solid fa-bottle-droplet"></i>
+            <h3>Premium Products</h3>
+            <p>We use only top-quality, natural oils and products to leave your skin smooth, refreshed, and rejuvenated.</p>
+          </div>
+          <div class="flip-card-back">
+            <img src="products.webp" alt="Premium Products">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Spa Manna Massage | All Rights Reserved
+  </footer>
+
+  <!-- ✅ JS for clickable logo redirect -->
+  <script>
+    document.getElementById('adminLogo').addEventListener('click', function() {
+      window.location.href = 'admin.html';
+    });
+  </script>
+</body>
+</html>

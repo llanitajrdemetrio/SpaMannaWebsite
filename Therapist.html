@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Therapist | Spa Manna Massage</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* === GLOBAL RESET === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* === BODY === */
+    body {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85)),
+        url('hq.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* === HEADER === */
+    header {
+      width: 100%;
+      background-color: #9c2b64;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: white;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.1);
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      color: white;
+      font-weight: 600;
+      text-shadow: 0 0 10px #ffb6d5;
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 35px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #ffb6d5;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ffc0d9;
+      transform: translateY(-2px);
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a.active {
+      color: #ffb6d5;
+      text-shadow: 0 0 10px #ffb6d5, 0 0 25px #ffb6d5;
+    }
+
+    /* === MAIN SECTION === */
+    main {
+      flex: 1;
+      padding-top: 140px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #ffb6d5;
+      text-shadow: 0 0 12px #ff85bc;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #f6d3e3;
+      margin-bottom: 50px;
+    }
+
+    /* === THERAPIST CARDS === */
+    .therapists {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      justify-items: center;
+      padding: 0 80px 120px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(35, 0, 45, 0.6);
+      border-radius: 30px;
+      padding: 50px 30px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow:
+        0 0 25px rgba(255, 182, 213, 0.12),
+        inset 0 0 12px rgba(255, 118, 175, 0.1);
+      backdrop-filter: blur(15px) saturate(140%);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 20px rgba(255, 182, 213, 0.4);
+    }
+
+    h3 {
+      color: #ffb6d5;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      text-shadow: 0 0 10px rgba(255, 182, 213, 0.5);
+    }
+
+    p {
+      color: #f7d8e5;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    button {
+      background: linear-gradient(90deg, #ff85bc, #9c2b64);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 14px 34px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 12px rgba(255, 182, 213, 0.3);
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      background: linear-gradient(90deg, #ffb6d5, #d2277a);
+    }
+
+    /* === EXPANSION EFFECT === */
+    .extra-info {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      font-size: 0.95rem;
+      margin-top: 10px;
+      color: #ffeaf5;
+      line-height: 1.6;
+    }
+
+    .card.expanded {
+      transform: scale(1.07);
+      background: rgba(35, 0, 45, 0.85);
+    }
+
+    .card.expanded .extra-info {
+      max-height: 300px;
+      opacity: 1;
+      margin-top: 15px;
+    }
+
+    .book-btn {
+      margin-top: 15px;
+      display: none;
+    }
+
+    .card.expanded .book-btn {
+      display: inline-block;
+    }
+
+    /* === LOADING OVERLAY === */
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 2000;
+    }
+
+    .loading-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .spinner {
+      width: 70px;
+      height: 70px;
+      border: 6px solid rgba(255, 255, 255, 0.25);
+      border-top: 6px solid #ff85bc;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      font-size: 1.2rem;
+      color: #ffeaf5;
+      letter-spacing: 1px;
+    }
+
+    .success-message {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(156, 43, 100, 0.95);
+      padding: 25px 40px;
+      border-radius: 20px;
+      color: #fff;
+      font-size: 1.2rem;
+      text-shadow: 0 0 10px #ffb6d5;
+      box-shadow: 0 0 25px rgba(255, 182, 213, 0.6);
+      display: none;
+      z-index: 3000;
+      animation: fadeInOut 3s ease forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+      15% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      85% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Logo">
+      <h1>Spa Manna Massage</h1>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="Services.html">Services & Pricing</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+        <li><a href="Appointment.html">Book Appointment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <h1>Select Your Therapist</h1>
+    <p class="subtitle">Choose from our certified massage specialists based on their expertise and your preference.</p>
+
+    <div class="therapists">
+      <!-- Repeat for each therapist -->
+      <div class="card">
+        <div class="icon">💆‍♀️</div>
+        <h3>Therapist Anna</h3>
+        <p>Expert in Swedish & Combination Massage.<br>Known for a gentle, relaxing touch.</p>
+        <div class="extra-info">
+          <p><strong>Experience:</strong> 6 years</p>
+          <p><strong>Specialty:</strong> Relaxation and stress relief</p>
+        </div>
+        <button class="book-btn">Book Appointment</button>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌿</div>
+        <h3>Therapist Mia</h3>
+        <p>Specialist in Shiatsu & Hot Stone Therapy.<br>Perfect for stress and tension relief.</p>
+        <div class="extra-info">
+          <p><strong>Experience:</strong> 8 years</p>
+          <p><strong>Specialty:</strong> Shiatsu and Aromatherapy</p>
+        </div>
+        <button class="book-btn">Book Appointment</button>
+      </div>
+
+      <div class="card">
+        <div class="icon">💆‍♂️</div>
+        <h3>Therapist Kate</h3>
+        <p>Experienced in Thai & Deep Tissue Massage.<br>Ideal for muscle recovery and energy balance.</p>
+        <div class="extra-info">
+          <p><strong>Experience:</strong> 5 years</p>
+          <p><strong>Specialty:</strong> Sports therapy</p>
+        </div>
+        <button class="book-btn">Book Appointment</button>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌸</div>
+        <h3>Therapist Grace</h3>
+        <p>Known for Aromatherapy and soothing techniques.<br>Brings relaxation through gentle precision.</p>
+        <div class="extra-info">
+          <p><strong>Experience:</strong> 7 years</p>
+          <p><strong>Specialty:</strong> Aroma and facial massage</p>
+        </div>
+        <button class="book-btn">Book Appointment</button>
+      </div>
+
+      <div class="card">
+        <div class="icon">🕊️</div>
+        <h3>Therapist Rose</h3>
+        <p>Specialist in Reflexology & Foot Massage.<br>Focused on restoring harmony and balance.</p>
+        <div class="extra-info">
+          <p><strong>Experience:</strong> 10 years</p>
+          <p><strong>Specialty:</strong> Reflexology</p>
+        </div>
+        <button class="book-btn">Book Appointment</button>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌺</div>
+        <h3>Therapist Ella</h3>
+        <p>Expert in Prenatal & Relaxation Massage.<br>Ensures comfort, care, and rejuvenation.</p>
+        <div class="extra-info">
+          <p><strong>Experience:</strong> 4 years</p>
+          <p><strong>Specialty:</strong> Prenatal therapy</p>
+        </div>
+        <button class="book-btn">Book Appointment</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- LOADING OVERLAY -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <div class="loading-text">Booking your appointment...</div>
+  </div>
+
+  <!-- SUCCESS MESSAGE -->
+  <div class="success-message" id="successMessage">Appointment booked successfully!</div>
+
+  <footer>© 2025 Spa Manna Massage | All Rights Reserved</footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".card");
+      const loadingOverlay = document.getElementById("loadingOverlay");
+      const successMessage = document.getElementById("successMessage");
+
+      cards.forEach(card => {
+        card.addEventListener("click", () => {
+          cards.forEach(c => {
+            if (c !== card) c.classList.remove("expanded");
+          });
+          card.classList.toggle("expanded");
+        });
+
+        const bookBtn = card.querySelector(".book-btn");
+        bookBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const name = card.querySelector("h3").textContent;
+
+          loadingOverlay.classList.add("active");
+
+          setTimeout(() => {
+            loadingOverlay.classList.remove("active");
+            successMessage.style.display = "block";
+
+            setTimeout(() => {
+              successMessage.style.display = "none";
+
+              // Redirect to appointment page
+              window.location.replace(`Appointment.html?therapist=${encodeURIComponent(name)}`);
+            }, 2000);
+          }, 2000);
+        });
+      });
+    });
+
+    // Prevent user from returning to this page after redirect
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = function () {
+      window.history.pushState(null, "", window.location.href);
+    };
+  </script>
+</body>
+</html>

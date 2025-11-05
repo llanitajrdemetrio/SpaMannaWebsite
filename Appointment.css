@@ -1,0 +1,432 @@
+/* === GLOBAL STYLES === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: url('appointmentbackground.JFIF') no-repeat center center/cover;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* === HEADER === */
+header {
+  width: 100%;
+  background-color: #9c2b64;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.logo h1 {
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 0 10px #ffb6d5;
+}
+
+/* === NAVIGATION === */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffb6d5;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffc0d9;
+  transform: translateY(-2px);
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a.active {
+  color: #ffb6d5;
+  text-shadow: 0 0 10px #ffb6d5, 0 0 25px #ffb6d5;
+}
+
+/* === OVERLAY === */
+.overlay {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 130px;
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.container {
+  width: 85%;
+  max-width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* === FORM BOX === */
+.form-box, .hours-box {
+  background: rgba(255,255,255,0.1);
+  padding: 40px;
+  border-radius: 15px;
+  width: 48%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.form-box h1 {
+  color: #ffbde0;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.85);
+  font-size: 1rem;
+  color: #333;
+}
+
+#mobileWarning {
+  display: none;
+  color: #ff6666;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* === SERVICE DROPDOWN === */
+.dropdown {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.dropdown-toggle {
+  background: linear-gradient(90deg, #d2277a, #ff85bc);
+  color: white;
+  font-weight: 600;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(210, 39, 122, 0.5);
+  transition: all 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #ff85bc, #d2277a);
+  box-shadow: 0 0 25px rgba(255, 182, 213, 0.8);
+}
+
+/* === START TIME DROPDOWN (MATCHED STYLE) === */
+.select-time {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.select-time select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: linear-gradient(90deg, #d2277a, #ff85bc);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(210, 39, 122, 0.5);
+  transition: all 0.3s ease;
+  text-align: left;
+  outline: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='22' viewBox='0 0 24 24' width='22' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 22px;
+}
+
+.select-time select:hover {
+  transform: scale(1.03);
+  background: linear-gradient(90deg, #ff85bc, #d2277a);
+  box-shadow: 0 0 30px rgba(255, 182, 213, 0.7);
+}
+
+.select-time select option {
+  color: #333;
+  background: #fff;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.select-time select:focus {
+  box-shadow: 0 0 20px rgba(255, 182, 213, 0.9);
+  outline: none;
+}
+
+/* === DROPDOWN MENU === */
+.dropdown-menu {
+  position: absolute;
+  top: 110%;  
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  display: none;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 220px;
+  z-index: 20;
+  animation: fadeSlide 0.25s ease;
+}
+
+.dropdown-menu.active {
+  display: flex;
+}
+
+.dropdown-item {
+  padding: 12px 18px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: background 0.2s ease, color 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 182, 213, 0.2);
+  color: #9c2b64;
+  font-weight: 600;
+}
+
+.dropdown-item.active {
+  background: linear-gradient(90deg, #d2277a, #ff85bc);
+  color: white;
+  font-weight: 600;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.checkmark {
+  color: white;
+  font-weight: bold;
+  display: none;
+}
+
+.dropdown-item.active .checkmark {
+  display: inline;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === FIXED BUTTON === */
+#proceedBtn {
+  background: linear-gradient(90deg, #d2277a, #ff85bc);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 700;
+  width: 100%;
+  margin-top: 10px;
+  text-transform: capitalize;
+  box-shadow: 0 0 25px rgba(210,39,122,0.4);
+  transition: all 0.3s ease;
+}
+
+#proceedBtn:hover {
+  background: linear-gradient(90deg, #ff85bc, #d2277a);
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(255, 182, 213, 0.8);
+}
+
+/* === HOURS BOX === */
+.hours-box h2 {
+  color: #ffbde0;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.hours-box td {
+  padding: 8px 0;
+  font-size: 1rem;
+}
+
+/* === LOADING OVERLAY === */
+.loading-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+
+.loading-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.loader {
+  border: 6px solid white;
+  border-top: 6px solid #ff85bc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 25px rgba(210,39,122,0.6);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === TOAST === */
+.toast {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #d2277a, #ff85bc);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px rgba(255,189,224,0.6);
+  font-weight: 600;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s ease;
+  z-index: 99999;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(10px);
+}
+
+.duration-dropdown {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  color: #444;
+  background-color: #f8f8f8;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
+}
+
+.duration-dropdown:focus {
+  outline: 2px solid #ff66b2;
+}
+
+/* === FORMAL ADD SERVICE BUTTON STYLE === */
+.add-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff85bc, #9c2b64);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(156, 43, 100, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.4px;
+}
+
+.add-btn:hover {
+  background: linear-gradient(135deg, #ffb6d5, #d2277a);
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 25px rgba(255, 182, 213, 0.6),
+    0 6px 15px rgba(156, 43, 100, 0.3);
+}
+
+.add-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(156, 43, 100, 0.4);
+}

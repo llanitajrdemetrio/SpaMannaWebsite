@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Spa Manna Massage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+  <!-- ===== Sidebar ===== -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li class="active">📊 Dashboard</li>
+      <li>📅 Appointments</li>
+      <li>⚙️ Settings</li>
+    </ul>
+
+    <!-- 🚪 Logout Button -->
+    <button id="logoutBtn" class="logout-btn">🚪 Logout</button>
+  </div>
+
+  <!-- ===== Main Dashboard ===== -->
+  <div class="main">
+    <h1>Analytics Overview</h1>
+
+    <!-- Stat Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Total Bookings</h3>
+        <p id="totalBookings">0</p>
+      </div>
+      <div class="card">
+        <h3>Most Popular Service</h3>
+        <p id="topService">None</p>
+      </div>
+      <div class="card">
+        <h3>Predicted Growth (Next Month)</h3>
+        <p id="predictedBookings">0</p>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts">
+      <div class="chart-box">
+        <h2>Bookings Per Service</h2>
+        <canvas id="serviceChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <h2>Service Share (%)</h2>
+        <canvas id="pieChart"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-box" style="margin-top:30px;">
+      <h2>Monthly Booking Trend</h2>
+      <canvas id="trendChart"></canvas>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+
+  <!-- 🔹 Logout Function -->
+  <script>
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      if (confirm("Are you sure you want to log out?")) {
+        // Optional: clear any stored session or data
+        localStorage.clear();
+
+        // Redirect to homepage
+        window.location.href = "home.html";
+      }
+    });
+  </script>
+</body>
+</html>

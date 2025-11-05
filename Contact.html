@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Spa Manna Massage</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Leaflet Routing Machine -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+  <!-- Leaflet MarkerCluster -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster-src.js"></script>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="Contact.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img id="adminLogo" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Logo">
+      <h1>Spa Manna Massage</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="Services.html">Services & Pricing</a></li>
+        <li><a href="Contact.html" class="active">Contact Us</a></li>
+        <li><a href="Appointment.html">Book Appointment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Contact Us</h2>
+    <p>We’re always happy to assist you — reach out today to book your perfect relaxation experience!</p>
+    <p>You can enter your location to see how far your location is from our spa.</p>
+
+    <div id="map">
+      <div class="location-input">
+        <input type="text" id="userLocation" placeholder="Enter your location or campus..." autocomplete="off">
+        <button id="findBtn">Find</button>
+      </div>
+
+      <div id="autocomplete" class="autocomplete-list"></div>
+
+      <div class="load-progress" id="loadProgress">
+        <span id="progressText">Loading campuses...</span>
+      </div>
+
+      <div class="travel-card" id="travelCard">
+        <strong>Expected Travel Time</strong><br>
+        Enter your location to calculate time and see direction.
+      </div>
+    </div>
+
+    <div class="contact-info">
+      <div class="info-box">
+        <h3>📍 Our Location</h3>
+        <p><i class="fas fa-map-marker-alt"></i> 1873 M. Eusebio Avenue, Pasig, Metro Manila, Philippines</p>
+        <p><i class="fas fa-phone-alt"></i> +63 912 345 6789</p>
+        <p><i class="fas fa-envelope"></i> spamanna@gmail.com</p>
+        <p><i class="fas fa-clock"></i> Mon - Sun: 9:00 AM - 9:00 PM</p>
+      </div>
+
+      <div class="message-box">
+        <h3>💌 Send Us a Message</h3>
+
+        <!-- Loader overlay -->
+        <div class="loader-overlay" id="loaderOverlay" style="display:none;">
+          <div class="loader"></div>
+        </div>
+
+        <form id="contactForm">
+          <input type="text" placeholder="Your Name" required id="msgName">
+          <input type="email" placeholder="Your Email" required id="msgEmail">
+          <textarea rows="4" placeholder="Your Message..." required id="msgText"></textarea>
+
+          <div id="typingIndicator" class="typing-indicator" style="display:none;">
+            Typing
+            <span class="typing-dots"><span></span><span></span><span></span></span>
+          </div>
+
+          <button type="submit" id="sendBtn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2025 Spa Manna Massage | All Rights Reserved</footer>
+
+  <div id="toast" class="toast" style="display:none;">
+    Message sent! <span class="close-btn" id="toastClose">✕</span>
+  </div>
+
+  <!-- External JS -->
+  <script src="Contact.js"></script>
+</body>
+</html>

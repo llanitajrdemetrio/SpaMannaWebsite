@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Appointment | Spa Manna Massage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Appointment.css">
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="Logo" id="adminLogo">
+      <h1>Spa Manna Massage</h1>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="Services.html">Services & Pricing</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+        <li><a href="Appointment.html" class="active">Book Appointment</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== APPOINTMENT FORM ===== -->
+  <div class="overlay">
+    <div class="container">
+      <div class="form-box">
+        <h1>Book Your Appointment</h1>
+        <form id="appointmentForm">
+          <input type="text" placeholder="Full Name" required id="fullName" />
+          <input type="email" placeholder="Email (Gmail only)" required id="email" />
+          <span id="emailWarning" style="display:none; color:#ff6666; font-size:0.85rem; font-weight:600;">⚠ Please enter a valid Gmail address.</span>
+          <input type="text" placeholder="Mobile Number" required id="mobileNumber" />
+          <span id="mobileWarning">⚠ Please enter numbers only.</span>
+
+          <!-- Service dropdown -->
+          <div class="dropdown" id="serviceDropdown">
+            <div class="dropdown-toggle" id="dropdownToggle">Select Services ▾</div>
+            <div class="dropdown-menu" id="dropdownMenu"></div>
+          </div>
+
+          <input type="date" id="appointmentDate" required />
+
+          <!-- Start time dropdown (MATCH STYLE) -->
+          <div class="dropdown select-time">
+            <select id="startTime" required>
+              <option value="">Select Start Time ▾</option>
+            </select>
+          </div>
+
+          <!-- End time display -->
+          <p id="endTimeDisplay" style="margin-top:10px; font-weight:600; color:#ffbde0;"></p>
+
+          <textarea rows="3" placeholder="Additional Notes (optional)" id="notes"></textarea>
+
+          <!-- Fixed button label -->
+          <button type="button" id="proceedBtn">Proceed to Select Your Therapist</button>
+        </form>
+      </div>
+
+      <div class="hours-box">
+        <h2>Opening Hours</h2>
+        <table>
+          <tr><td>Monday - Friday</td><td>09:00 AM - 08:00 PM</td></tr>
+          <tr><td>Saturday</td><td>10:00 AM - 06:00 PM</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="loading-overlay"><div class="loader"></div></div>
+  <div class="toast">✅ Appointment booked successfully!</div>
+  
+
+  <script src="Appointment.js"></script>
+</body>
+</html>
